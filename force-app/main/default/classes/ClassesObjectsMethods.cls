@@ -220,7 +220,7 @@ public with sharing class ClassesObjectsMethods {
         return formatedDate; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 9
      * Given a date time return the day of the week in number format
      * @param dt the current date and time
@@ -229,13 +229,24 @@ public with sharing class ClassesObjectsMethods {
     public static String getDayOfWeek(DateTime dt) {
         // Define a map of day of the week as a key and day number as the value
         // Monday = 1, Tuesday = 2, etc.
+        Map<String, Integer> dayOfTheWeek = new Map<String, Integer>();
+        dayOfTheWeek.put('Monday', 1);
+        dayOfTheWeek.put('Tuesday', 2);
+        dayOfTheWeek.put('Wednesday', 3);
+        dayOfTheWeek.put('Thursday', 4);
+        dayOfTheWeek.put('Friday', 5);
+        dayOfTheWeek.put('Saturday', 6);
+        dayOfTheWeek.put('Sunday', 7);
 
         // Get the day name using .format('EEEE');
+        String dayName = dt.format('EEEE');
 
         // Get the day number from the map using the day name
+        Integer dayNumber = dayOfTheWeek.get(dayName);
+        String dayNumberString = String.valueOf(dayNumber);
 
         // Return the result as a string
-        return null; // Replace null with the variable you used to store the result
+        return dayNumberString; // Replace null with the variable you used to store the result
     }
 
 
