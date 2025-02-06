@@ -114,7 +114,7 @@ public with sharing class ClassesObjectsMethods {
         return joinedWords; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 4
      * This method takes a string as a parameter, and calculates the number of vowels in the string.
      * For simplicity, we will consider only five vowels: 'a', 'e', 'i', 'o', 'u', and we will ignore case.
@@ -124,16 +124,19 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer countVowels(String str) {
         // Initialize the result Integer
+        Integer vowelCounter = 0;
+        List<String> stringCharacters = str.split('');
 
-        /*
-        for () {
+        for (String character : stringCharacters) {
             // get individual characters from the string - hint use substring or split
             // check if the character is a vowel
             // if it is a vowel, increment the result Integer
-        }
-        */
+            if (character.equals('a') || character.equals('e') || character.equals('i') || character.equals('o') || character.equals('u')) {
+                vowelCounter++;
+            }
+        }        
 
-        return null; // Replace null with the variable you used to store the result
+        return vowelCounter; // Replace null with the variable you used to store the result
     }
 
     /**
