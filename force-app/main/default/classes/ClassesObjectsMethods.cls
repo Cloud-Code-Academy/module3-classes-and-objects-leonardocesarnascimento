@@ -272,7 +272,7 @@ public with sharing class ClassesObjectsMethods {
         return yearsOfDifference; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 11
      * The Book class represents a book in a library. 
      * Each Book object has a title and an author, and methods to return these details.
@@ -284,16 +284,23 @@ public with sharing class ClassesObjectsMethods {
         // title
         // author
         // pages
+        public String title;
+        public String author;
+        public Integer pages;
     
         // Book constructor to initialize the title and author
-        public Book() {
+        public Book(String title, String author) {
             // Initialize the title and author
+            this.title = title;
+            this.author = author;
         }
     
         // Method that returns the details of the book
         public String getBookDetails() {
             // return A string containing the details of the book in the format "Title: <title>, Author: <author>"
-            return null; // Replace null with the variable you used to store the result
+            String bookDetails = 'Title: ' + title + ', Author: ' + author;
+
+            return bookDetails; // Replace null with the variable you used to store the result
         }
     }
     
