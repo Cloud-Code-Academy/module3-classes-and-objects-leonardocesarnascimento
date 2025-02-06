@@ -60,7 +60,7 @@ public with sharing class ClassesObjectsMethods {
         return stringList; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 2
      * Check if the input string starts with 'Sales', ends with 'Force', and contains 'Awesome'.
      * Example: checkStringContent('Salesforce is Awesome!') should return a list like [true, false, true].
@@ -69,14 +69,23 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<Boolean> checkStringContent(String input) {
         // Initialize a list to store the results
+        List<Boolean> checkStringResults = new List<Boolean>();
         
         // Check if the string starts with 'Sales'
+        Boolean startOfString = input.startsWith('Sales');
         
         // Check if the string ends with 'Force'
+        Boolean endOfString = input.endsWith('Force');
         
         // Check if the string contains 'Awesome'
+        Boolean containsAwesome = input.contains('Awesome');
         
-        return null; // Replace null with the variable you used to store the result
+        // Add the results to the list
+        checkStringResults.add(startOfString);
+        checkStringResults.add(endOfString);
+        checkStringResults.add(containsAwesome);
+        
+        return checkStringResults; // Replace null with the variable you used to store the result
     }
 
     /**
