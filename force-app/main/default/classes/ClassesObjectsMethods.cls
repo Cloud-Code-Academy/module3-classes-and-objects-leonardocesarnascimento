@@ -139,7 +139,7 @@ public with sharing class ClassesObjectsMethods {
         return vowelCounter; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 5
      * Given a list of scientist names, combine their names together with a comma if it contains the letter 'g'.
      * The final string should not end with a comma.
@@ -151,16 +151,21 @@ public with sharing class ClassesObjectsMethods {
         List<String> scientistNames = new List<String>{'Tim Berners-Lee', 'Alan Turing', 'Grace Hopper', 'Donald Knuth', 'Guido van Rossum', 'Ken Thompson', 'Stephen Hawking'};
 
         // The variable to store the concatenated string
+        String scientistNamesLetterG = '';
 
         // Loop through the list of scientists' names
-
+        for (String scientistName : scientistNames) {          
             // If the name doesn't contain the letter 'G', skip this iteration
-
+            if (!scientistName.containsIgnoreCase('g')) {
+                continue;
+            }   
             // Add the name to the result string, followed by a comma
-
+            scientistNamesLetterG += scientistName + ',';
+        }
         // Remove the last comma from the result string
+        scientistNamesLetterG = scientistNamesLetterG.removeEnd(',');
 
-        return null; // Replace null with the variable you used to store the result
+        return scientistNamesLetterG; // Replace null with the variable you used to store the result
     }
 
     /**
