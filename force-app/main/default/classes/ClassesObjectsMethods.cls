@@ -168,7 +168,7 @@ public with sharing class ClassesObjectsMethods {
         return scientistNamesLetterG; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 6
      * This method calculates the absolute value of the difference between of two input numbers that are raised to the 2nd power.
      * Example: calculateDifferenceOfSquares(3, 4) should return 7.
@@ -178,11 +178,14 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Double calculateDifferenceOfSquares(Double a, Double b) {
         // Square the input numbers using the Math.pow() function
+        Double aPow = Math.pow(a, 2);
+        Double bPow = Math.pow(b, 2);
 
         // Calculate the absolute difference using Math.abs() function
+        Double absDifference = Math.abs(aPow - bPow);
 
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return absDifference; // Replace null with the variable you used to store the result
     }
 
     /**
