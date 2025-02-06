@@ -203,7 +203,7 @@ public with sharing class ClassesObjectsMethods {
         return randomInteger; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 8
      * Format the current date in the current user locale format.
      * Example: getCurrentDate() should return a string like "3/21/2001" for US locale users. Locale/String may differ depending on your location.
@@ -211,11 +211,13 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String getCurrentDate() {
         // Get the todays date
+        Date currentDate = Date.today();
 
         // Format the current date
+        String formatedDate = currentDate.format();
 
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return formatedDate; // Replace null with the variable you used to store the result
     }
 
     /**
