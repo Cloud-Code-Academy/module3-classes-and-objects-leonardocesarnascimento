@@ -250,7 +250,7 @@ public with sharing class ClassesObjectsMethods {
     }
 
 
-    /**
+    /**DONE!!!
      * Question 10
      * Calculate the difference between the years of two dates
      * For example, if the first date is 2023-01-01 and the second date is 2025-12-31, the method should return 2
@@ -260,10 +260,16 @@ public with sharing class ClassesObjectsMethods {
      * @return The a positive number years between the two dates, or null if either date is null.
      */
     public static Integer calculateYearDifference(Date d1, Date d2) {
+        Integer yearsOfDifference;
 
         // Subtract the difference in years
+        if (d1 == null || d2 == null) {
+            return null; // Replace null with the variable you used to store the result
+        } else {
+            yearsOfDifference = d2.year() - d1.year();
+        }
 
-        return null; // Replace null with the variable you used to store the result
+        return yearsOfDifference; // Replace null with the variable you used to store the result
     }
 
     /**
