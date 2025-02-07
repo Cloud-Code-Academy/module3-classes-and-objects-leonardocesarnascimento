@@ -356,7 +356,7 @@ public with sharing class ClassesObjectsMethods {
     }
 
 
-    /**
+    /**DONE!!!
      * Question 14
      * The Person class represents a person.
      * Each Person object has a name and an age, and methods to return these details.
@@ -365,20 +365,45 @@ public with sharing class ClassesObjectsMethods {
      */
     public class Person {
         // Declare private two instance variables - (TEXT) name and (Number) age
+        private String name;
+        private Integer age;
         
         // Constructor to initialize the name and age
+        public Person(String name, Integer age) {
+            // Initialize the name and age
+            this.name = name;
+            this.age = age;
+        }
     
         // Method introduceYourself that returns the details of the person        
         // Return a string in the format "Hello, my name is <name> and I am <age> years old."
         // For example, introduceYourself() should return a string like "Hello, my name is John Doe and I am 28 years old."
+        public String introduceYourself() {
+            String intro = 'Hello, my name is ' + this.name + ' and I am ' + this.age + ' years old.';
+
+            return intro; // Replace null with the variable you used to store the result
+        }
 
         // Getter method that returns the name of the person
+        public String getName(){
+            return this.name;
+        }
 
         // Getter method that returns the age of the person
+        public Integer getAge(){
+            return this.age;
+        }
 
         // Setter method that sets the name of the person
+        public void setName(String name){
+            this.name = name;
+        }
 
         // Setter method that sets the age of the person
+        public void setAge(Integer age){
+            this.age = age;
+        }
+
     }
 
     /**
