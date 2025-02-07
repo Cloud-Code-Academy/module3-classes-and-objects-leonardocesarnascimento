@@ -434,7 +434,7 @@ public with sharing class ClassesObjectsMethods {
         return results; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 16
      * Create a Person object with the provided name and age.
      * @param name The name of the person.
@@ -449,7 +449,7 @@ public with sharing class ClassesObjectsMethods {
         return anotherPerson; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 17
      * Create a method that constructs multiple Person objects.
      * You are to create a new Person object for each name in the provided List<String> of names,
@@ -460,14 +460,17 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<Person> createMultiplePersons(List<String> names, Integer age) {
 
+        List<Person> newPersonObjects = new List<Person>();
         // Loop through each name in the provided list of names
+        for(String personName : names){
             // Create a new Person object for each name
+            Person newPersonObject = new Person(personName, age);	
             
             // Add the new Person object to the list of Person objects
-        
-        
+            newPersonObjects.add(newPersonObject);        
+        }
         // Return the list of Person objects
-        return null; // Replace null with the variable you used to store the result
+        return newPersonObjects; // Replace null with the variable you used to store the result
     }
 
 
