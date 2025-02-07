@@ -322,7 +322,7 @@ public with sharing class ClassesObjectsMethods {
         return bookDetails; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 13
      * Create and update two Book objects and returns the books.
      * For example, generateBookList(Book) should return a list like ["Title: Harry Potter and the Chamber of Secrets, Author: J.K. Rowling", "Title: A Brief History of Time, Author: Stephen Hawking"].
@@ -333,18 +333,26 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<Book> generateBookList(Book myBook1) {
         // Create a list of books
+        List<Book> myListOfBooks = new List<Book>();
 
         // Update the title and author of myBook1
+        myBook1.title = 'Harry Potter and the Chamber of Secrets';
+        myBook1.author = 'J.K. Rowling';
 
         // Update the pages for myBook1 to 352
+        myBook1.pages = 352;
 
         // Create a new Book object with title "A Brief History of Time" and author "Stephen Hawking"
+        Book myBook2 = new Book('A Brief History of Time', 'Stephen Hawking');
 
         // Update the pages for A Brief History of Time to 256
+        myBook2.pages = 256;
 
         // Add the book to the list
+        myListOfBooks.add(myBook1);
+        myListOfBooks.add(myBook2);
         
-        return null; // Replace null with the variable you used to store the result      
+        return myListOfBooks; // Replace null with the variable you used to store the result      
     }
 
 
