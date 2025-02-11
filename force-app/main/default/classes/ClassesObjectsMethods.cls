@@ -26,12 +26,12 @@
  * Math class: https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_math.htm
  * Classes: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_understanding.htm
  *
- * @author Your Name
+ * @author Leonardo Cesar Nascimento
  */
 
 public with sharing class ClassesObjectsMethods {
     
-    /**
+    /**DONE!!!
      * Question 1
      * It initializes a String to "Hello, Salesforce!" and demonstrates usage of
      * the length, substring, and toLowerCase methods of the String class.
@@ -40,20 +40,27 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<String> practiceStringMethods() {
         // Initialize a String with 'Hello, Salesforce!'
-        
-        // Get the length of the String        
+        String helloSalesforce = 'Hello, Salesforce!';
+        // Get the length of the String  
+        Integer lengthHelloSalesforce = helloSalesforce.length();      
         // Get a substring of the String of the first 5 characters
+        String substringHello = helloSalesforce.substring(0, 5);
         // Convert the String to lower case
-        
+        String lowerCaseHello = helloSalesforce.toLowerCase();
+
         // Return the list with the string data
         // In the first position add the string length
         // In the second position add the substring
         // In the third position add the string in lower case
+        List<String> stringList = new List<String>();
+        stringList.add(String.valueOf(lengthHelloSalesforce));
+        stringList.add(substringHello);
+        stringList.add(lowerCaseHello);
 
-        return null; // Replace null with the variable you used to store the result
+        return stringList; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 2
      * Check if the input string starts with 'Sales', ends with 'Force', and contains 'Awesome'.
      * Example: checkStringContent('Salesforce is Awesome!') should return a list like [true, false, true].
@@ -62,17 +69,26 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<Boolean> checkStringContent(String input) {
         // Initialize a list to store the results
+        List<Boolean> checkStringResults = new List<Boolean>();
         
         // Check if the string starts with 'Sales'
+        Boolean startOfString = input.startsWith('Sales');
         
         // Check if the string ends with 'Force'
+        Boolean endOfString = input.endsWith('Force');
         
         // Check if the string contains 'Awesome'
+        Boolean containsAwesome = input.contains('Awesome');
         
-        return null; // Replace null with the variable you used to store the result
+        // Add the results to the list
+        checkStringResults.add(startOfString);
+        checkStringResults.add(endOfString);
+        checkStringResults.add(containsAwesome);
+        
+        return checkStringResults; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 3
      * Take a sentence then remove any duplicate words, and return the sentence with only unique words.
      * Example: removeDuplicateWords('Hello Hello Salesforce Salesforce') should return 'Hello Salesforce'.
@@ -81,18 +97,24 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String removeDuplicateWords(String sentence) {
         // Split the sentence into words
+        List<String> wordsOfSentence = sentence.split(' ');
 
         // Create a set to store the unique words
+        Set <String> uniqueWords = new Set<String>();
 
         // Add each word to the set
+        for (String words : wordsOfSentence) {
+            uniqueWords.add(words);
+        }
 
         // Join the unique words back into a sentence
+        String joinedWords = String.join(new List<String>(uniqueWords), ' ');
 
         // Return the sentence with unique words
-        return null; // Replace null with the variable you used to store the result
+        return joinedWords; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 4
      * This method takes a string as a parameter, and calculates the number of vowels in the string.
      * For simplicity, we will consider only five vowels: 'a', 'e', 'i', 'o', 'u', and we will ignore case.
@@ -102,19 +124,22 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer countVowels(String str) {
         // Initialize the result Integer
+        Integer vowelCounter = 0;
+        List<String> stringCharacters = str.split('');
 
-        /*
-        for () {
+        for (String character : stringCharacters) {
             // get individual characters from the string - hint use substring or split
             // check if the character is a vowel
             // if it is a vowel, increment the result Integer
-        }
-        */
+            if (character.equals('a') || character.equals('e') || character.equals('i') || character.equals('o') || character.equals('u')) {
+                vowelCounter++;
+            }
+        }        
 
-        return null; // Replace null with the variable you used to store the result
+        return vowelCounter; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 5
      * Given a list of scientist names, combine their names together with a comma if it contains the letter 'g'.
      * The final string should not end with a comma.
@@ -126,19 +151,24 @@ public with sharing class ClassesObjectsMethods {
         List<String> scientistNames = new List<String>{'Tim Berners-Lee', 'Alan Turing', 'Grace Hopper', 'Donald Knuth', 'Guido van Rossum', 'Ken Thompson', 'Stephen Hawking'};
 
         // The variable to store the concatenated string
+        String scientistNamesLetterG = '';
 
         // Loop through the list of scientists' names
-
+        for (String scientistName : scientistNames) {          
             // If the name doesn't contain the letter 'G', skip this iteration
-
+            if (!scientistName.containsIgnoreCase('g')) {
+                continue;
+            }   
             // Add the name to the result string, followed by a comma
-
+            scientistNamesLetterG += scientistName + ',';
+        }
         // Remove the last comma from the result string
+        scientistNamesLetterG = scientistNamesLetterG.removeEnd(',');
 
-        return null; // Replace null with the variable you used to store the result
+        return scientistNamesLetterG; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 6
      * This method calculates the absolute value of the difference between of two input numbers that are raised to the 2nd power.
      * Example: calculateDifferenceOfSquares(3, 4) should return 7.
@@ -148,14 +178,17 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Double calculateDifferenceOfSquares(Double a, Double b) {
         // Square the input numbers using the Math.pow() function
+        Double aPow = Math.pow(a, 2);
+        Double bPow = Math.pow(b, 2);
 
         // Calculate the absolute difference using Math.abs() function
+        Double absDifference = Math.abs(aPow - bPow);
 
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return absDifference; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 7
      * Generate a random number between 50 and 100
      * Example: generateRandomNumber() should return a number like 75.
@@ -163,12 +196,15 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer generateRandomNumber() {
         // Use Math class to generate number between 50 and 100
+        //I had written this piece of code and the tests were passing, but later I found out that
+        //the logic wasn't good (sometimes passed and others not), so I used ChatGPT to improve the code
+        Integer randomInteger = (Math.floor(Math.random() * 51) + 50).intValue();
 
         // Return the random integer
-        return null; // Replace null with the variable you used to store the result
+        return randomInteger; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 8
      * Format the current date in the current user locale format.
      * Example: getCurrentDate() should return a string like "3/21/2001" for US locale users. Locale/String may differ depending on your location.
@@ -176,14 +212,16 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String getCurrentDate() {
         // Get the todays date
+        Date currentDate = Date.today();
 
         // Format the current date
+        String formatedDate = currentDate.format();
 
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return formatedDate; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 9
      * Given a date time return the day of the week in number format
      * @param dt the current date and time
@@ -192,17 +230,28 @@ public with sharing class ClassesObjectsMethods {
     public static String getDayOfWeek(DateTime dt) {
         // Define a map of day of the week as a key and day number as the value
         // Monday = 1, Tuesday = 2, etc.
+        Map<String, Integer> dayOfTheWeek = new Map<String, Integer>();
+        dayOfTheWeek.put('Monday', 1);
+        dayOfTheWeek.put('Tuesday', 2);
+        dayOfTheWeek.put('Wednesday', 3);
+        dayOfTheWeek.put('Thursday', 4);
+        dayOfTheWeek.put('Friday', 5);
+        dayOfTheWeek.put('Saturday', 6);
+        dayOfTheWeek.put('Sunday', 7);
 
         // Get the day name using .format('EEEE');
+        String dayName = dt.format('EEEE');
 
         // Get the day number from the map using the day name
+        Integer dayNumber = dayOfTheWeek.get(dayName);
+        String dayNumberString = String.valueOf(dayNumber);
 
         // Return the result as a string
-        return null; // Replace null with the variable you used to store the result
+        return dayNumberString; // Replace null with the variable you used to store the result
     }
 
 
-    /**
+    /**DONE!!!
      * Question 10
      * Calculate the difference between the years of two dates
      * For example, if the first date is 2023-01-01 and the second date is 2025-12-31, the method should return 2
@@ -212,13 +261,19 @@ public with sharing class ClassesObjectsMethods {
      * @return The a positive number years between the two dates, or null if either date is null.
      */
     public static Integer calculateYearDifference(Date d1, Date d2) {
+        Integer yearsOfDifference;
 
         // Subtract the difference in years
+        if (d1 == null || d2 == null) {
+            return null; // Replace null with the variable you used to store the result
+        } else {
+            yearsOfDifference = d2.year() - d1.year();
+        }
 
-        return null; // Replace null with the variable you used to store the result
+        return yearsOfDifference; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 11
      * The Book class represents a book in a library. 
      * Each Book object has a title and an author, and methods to return these details.
@@ -230,21 +285,28 @@ public with sharing class ClassesObjectsMethods {
         // title
         // author
         // pages
+        public String title;
+        public String author;
+        public Integer pages;
     
         // Book constructor to initialize the title and author
-        public Book() {
+        public Book(String title, String author) {
             // Initialize the title and author
+            this.title = title;
+            this.author = author;
         }
     
         // Method that returns the details of the book
         public String getBookDetails() {
             // return A string containing the details of the book in the format "Title: <title>, Author: <author>"
-            return null; // Replace null with the variable you used to store the result
+            String bookDetails = 'Title: ' + title + ', Author: ' + author;
+
+            return bookDetails; // Replace null with the variable you used to store the result
         }
     }
     
 
-    /**
+    /**DONE!!!
      * Question 12
      * Create a Book object and returns the details of the book.
      * For example, createAndGetBookDetails() should return a string like "Title: A Brief History of Time, Author: Stephen Hawking".
@@ -252,14 +314,16 @@ public with sharing class ClassesObjectsMethods {
      */
     public static String createAndGetBookDetails() {
         // Create a Book object with title "A Brief History of Time" and author "Stephen Hawking"
+        Book sthepehHalkingBook = new Book('A Brief History of Time', 'Stephen Hawking');
 
         // Call the getBookDetails method on the book object to get the details of the book
+        String bookDetails = sthepehHalkingBook.getBookDetails();
 
         // Return the details of the book
-        return null; // Replace null with the variable you used to store the result
+        return bookDetails; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 13
      * Create and update two Book objects and returns the books.
      * For example, generateBookList(Book) should return a list like ["Title: Harry Potter and the Chamber of Secrets, Author: J.K. Rowling", "Title: A Brief History of Time, Author: Stephen Hawking"].
@@ -270,22 +334,30 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<Book> generateBookList(Book myBook1) {
         // Create a list of books
+        List<Book> myListOfBooks = new List<Book>();
 
         // Update the title and author of myBook1
+        myBook1.title = 'Harry Potter and the Chamber of Secrets';
+        myBook1.author = 'J.K. Rowling';
 
         // Update the pages for myBook1 to 352
+        myBook1.pages = 352;
 
         // Create a new Book object with title "A Brief History of Time" and author "Stephen Hawking"
+        Book myBook2 = new Book('A Brief History of Time', 'Stephen Hawking');
 
         // Update the pages for A Brief History of Time to 256
+        myBook2.pages = 256;
 
         // Add the book to the list
+        myListOfBooks.add(myBook1);
+        myListOfBooks.add(myBook2);
         
-        return null; // Replace null with the variable you used to store the result      
+        return myListOfBooks; // Replace null with the variable you used to store the result      
     }
 
 
-    /**
+    /**DONE!!!
      * Question 14
      * The Person class represents a person.
      * Each Person object has a name and an age, and methods to return these details.
@@ -294,23 +366,48 @@ public with sharing class ClassesObjectsMethods {
      */
     public class Person {
         // Declare private two instance variables - (TEXT) name and (Number) age
+        private String name;
+        private Integer age;
         
         // Constructor to initialize the name and age
+        public Person(String name, Integer age) {
+            // Initialize the name and age
+            this.name = name;
+            this.age = age;
+        }
     
         // Method introduceYourself that returns the details of the person        
         // Return a string in the format "Hello, my name is <name> and I am <age> years old."
         // For example, introduceYourself() should return a string like "Hello, my name is John Doe and I am 28 years old."
+        public String introduceYourself() {
+            String intro = 'Hello, my name is ' + this.name + ' and I am ' + this.age + ' years old.';
+
+            return intro; // Replace null with the variable you used to store the result
+        }
 
         // Getter method that returns the name of the person
+        public String getName(){
+            return this.name;
+        }
 
         // Getter method that returns the age of the person
+        public Integer getAge(){
+            return this.age;
+        }
 
         // Setter method that sets the name of the person
+        public void setName(String name){
+            this.name = name;
+        }
 
         // Setter method that sets the age of the person
+        public void setAge(Integer age){
+            this.age = age;
+        }
+
     }
 
-    /**
+    /**DONE!!!
      * Question 15
      * Create a Person object and returns the details of the person.
      * For example, personDetails() should return a list like ["Hello, my name is John Doe and I am 28 years old.", "John Doe", "28"].
@@ -321,17 +418,24 @@ public with sharing class ClassesObjectsMethods {
         List<String> results = new List<String>();
         // Create a new instance of Person class
         // Name the person 'John Doe' and set the age to 28
+        Person newPerson = new Person('John Doe', 28);
 
         // Add the details of the person using the introduceYourself method
+        String newPersonDetails = newPerson.introduceYourself();
+        results.add(newPersonDetails);
 
         // Get the name of the person using the getter method and add it to the list
+        String personName = newPerson.getName();
+        results.add(personName);
 
         // Get the age of the person using the getter method and add it to the list
+        String personAge = newPerson.getAge().toString();
+        results.add(personAge);
         
-        return null; // Replace null with the variable you used to store the result
+        return results; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 16
      * Create a Person object with the provided name and age.
      * @param name The name of the person.
@@ -340,12 +444,13 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Person createPerson(String name, Integer age) {
         // Create a new instance of the Person class using the provided name and age
+        Person anotherPerson = new Person(name, age);
         
         // Return the new instance of the Person class
-        return null; // Replace null with the variable you used to store the result
+        return anotherPerson; // Replace null with the variable you used to store the result
     }
 
-    /**
+    /**DONE!!!
      * Question 17
      * Create a method that constructs multiple Person objects.
      * You are to create a new Person object for each name in the provided List<String> of names,
@@ -356,18 +461,21 @@ public with sharing class ClassesObjectsMethods {
      */
     public static List<Person> createMultiplePersons(List<String> names, Integer age) {
 
+        List<Person> newPersonObjects = new List<Person>();
         // Loop through each name in the provided list of names
+        for(String personName : names){
             // Create a new Person object for each name
+            Person newPersonObject = new Person(personName, age);	
             
             // Add the new Person object to the list of Person objects
-        
-        
+            newPersonObjects.add(newPersonObject);        
+        }
         // Return the list of Person objects
-        return null; // Replace null with the variable you used to store the result
+        return newPersonObjects; // Replace null with the variable you used to store the result
     }
 
 
-    /**
+    /**DONE!!!
      * Question 18
      * Compare two Person objects based on their ages.
      * If the first Person is older, the method should return the first Person. If the second Person is older, it should return the second Person.
@@ -378,6 +486,20 @@ public with sharing class ClassesObjectsMethods {
      * @return The Person object of the older person.
      */
     public static Person getOlderPerson(Person person1, Person person2) {
-        return null; // Replace null with the variable you used to store the result
+        
+        Person resultPerson;
+
+        // Check which Person object is older and return the older Person object
+        if (person1.getAge() > person2.getAge()) {
+            resultPerson = person1;
+        } else if  (person2.getAge() > person1.getAge()) {
+            resultPerson = person2;
+        } else {
+           
+            //Used AI suggestion to write this piece of code, but sincerely didn't understand what it does :(
+            resultPerson = Math.random() < 0.5 ? person1 : person2;
+        }
+       
+        return resultPerson; // Replace null with the variable you used to store the result
     }
 }
