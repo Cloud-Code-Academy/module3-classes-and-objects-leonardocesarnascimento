@@ -196,8 +196,9 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer generateRandomNumber() {
         // Use Math class to generate number between 50 and 100
-        Double randomDouble = Math.random() * 100;
-        Integer randomInteger = randomDouble.intValue();
+        //I had written this piece of code and the tests were passing, but later I found out that
+        //the logic wasn't good (sometimes passed and others not), so I used ChatGPT to improve the code
+        Integer randomInteger = (Math.floor(Math.random() * 51) + 50).intValue();
 
         // Return the random integer
         return randomInteger; // Replace null with the variable you used to store the result
@@ -474,7 +475,7 @@ public with sharing class ClassesObjectsMethods {
     }
 
 
-    /**
+    /**DONE!!!
      * Question 18
      * Compare two Person objects based on their ages.
      * If the first Person is older, the method should return the first Person. If the second Person is older, it should return the second Person.
@@ -485,6 +486,20 @@ public with sharing class ClassesObjectsMethods {
      * @return The Person object of the older person.
      */
     public static Person getOlderPerson(Person person1, Person person2) {
-        return null; // Replace null with the variable you used to store the result
+        
+        Person resultPerson;
+
+        // Check which Person object is older and return the older Person object
+        if (person1.getAge() > person2.getAge()) {
+            resultPerson = person1;
+        } else if  (person2.getAge() > person1.getAge()) {
+            resultPerson = person2;
+        } else {
+           
+            //Used AI suggestion to write this piece of code, but sincerely didn't understand what it does :(
+            resultPerson = Math.random() < 0.5 ? person1 : person2;
+        }
+       
+        return resultPerson; // Replace null with the variable you used to store the result
     }
 }
